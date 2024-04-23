@@ -3,8 +3,15 @@ import SwiftUI
 struct PokemonOverView: View {
     @StateObject var viewModel: ViewModel
     var body: some View {
-        List(viewModel.pokemons, id: \.name) { pokemon in
-            Text(pokemon.name)
+        NavigationStack {
+            List(viewModel.pokemons, id: \.name) { pokemon in
+                NavigationLink {
+                    PokemonDetailView(viewModel: .init(pokemon: pokemon))
+                } label: {
+                    Text(pokemon.name)
+                }
+            }
+            .navigationTitle("Pokedex")
         }
     }
 }
