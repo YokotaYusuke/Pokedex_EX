@@ -1,18 +1,33 @@
-//
-//  PokemonOverView.swift
-//  Pokedex_EX
-//
-//  Created by yusukeyokota on 2024/04/23.
-//
-
 import SwiftUI
 
 struct PokemonOverView: View {
+    @StateObject var viewModel: ViewModel
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List(viewModel.pokemons, id: \.name) { pokemon in
+            Text(pokemon.name)
+        }
     }
 }
 
+extension PokemonOverView {
+    class ViewModel: ObservableObject {
+        @Published var pokemons = [Pokemon]()
+        
+        init(repository: PokemonRepository = DefaultPokemonRepository()) {
+            Task {
+                let pokemons = await repository.getPokemons()
+                await update(pokemons)
+            }
+        }
+        
+        @MainActor
+        func update(_ pokemons: [Pokemon]) {
+            self.pokemons = pokemons
+        }
+    }
+}
+
+
 #Preview {
-    PokemonOverView()
+    PokemonOverView(viewModel: .init())
 }

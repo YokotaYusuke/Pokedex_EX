@@ -8,7 +8,7 @@ class PokemonRepositoryTests: XCTestCase {
         let repository = DefaultPokemonRepository(http: spyHttp)
         
         
-        let _ = await repository.getPokemons()
+        _ = await repository.getPokemons()
         
 
         XCTAssertEqual(spyHttp.data_argument_request, URLRequest(url: URL(string: "https://pokeapi.co/api/v2/pokemon")!))

@@ -8,7 +8,7 @@ protocol PokemonRepository {
 class DefaultPokemonRepository: PokemonRepository {
     let http: Http
     
-    init(http: Http) {
+    init(http: Http = URLSession.shared) {
         self.http = http
     }
     

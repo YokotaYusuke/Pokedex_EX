@@ -19,6 +19,9 @@
 		812DCFD52BD7451F00451949 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812DCFD42BD7451F00451949 /* Pokemon.swift */; };
 		812DCFD92BD7482700451949 /* HttpDoubles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812DCFD82BD7482700451949 /* HttpDoubles.swift */; };
 		815C63222BD74DA4007A535D /* hoge.m in Sources */ = {isa = PBXBuildFile; fileRef = 815C63212BD74DA4007A535D /* hoge.m */; };
+		819A9F652BD754580099752F /* PokemonOverViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819A9F642BD754580099752F /* PokemonOverViewTests.swift */; };
+		819A9F672BD756150099752F /* PokemonRepositoryDoubles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819A9F662BD756150099752F /* PokemonRepositoryDoubles.swift */; };
+		819A9F6A2BD759B80099752F /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 819A9F692BD759B80099752F /* Nimble */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,8 @@
 		812DCFD42BD7451F00451949 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		812DCFD82BD7482700451949 /* HttpDoubles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpDoubles.swift; sourceTree = "<group>"; };
 		815C63212BD74DA4007A535D /* hoge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = hoge.m; sourceTree = "<group>"; };
+		819A9F642BD754580099752F /* PokemonOverViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonOverViewTests.swift; sourceTree = "<group>"; };
+		819A9F662BD756150099752F /* PokemonRepositoryDoubles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonRepositoryDoubles.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				819A9F6A2BD759B80099752F /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +135,7 @@
 		812DCFAE2BD743D000451949 /* Pokedex_EXTests */ = {
 			isa = PBXGroup;
 			children = (
+				819A9F632BD754370099752F /* View */,
 				812DCFD72BD7481C00451949 /* Http */,
 				812DCFD62BD746C000451949 /* Repository */,
 			);
@@ -172,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				812DCFAF2BD743D000451949 /* PokemonRepositoryTests.swift */,
+				819A9F662BD756150099752F /* PokemonRepositoryDoubles.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -190,6 +198,14 @@
 				815C63212BD74DA4007A535D /* hoge.m */,
 			);
 			path = UITest;
+			sourceTree = "<group>";
+		};
+		819A9F632BD754370099752F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				819A9F642BD754580099752F /* PokemonOverViewTests.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,6 +242,9 @@
 				812DCFAD2BD743D000451949 /* PBXTargetDependency */,
 			);
 			name = Pokedex_EXTests;
+			packageProductDependencies = (
+				819A9F692BD759B80099752F /* Nimble */,
+			);
 			productName = Pokedex_EXTests;
 			productReference = 812DCFAB2BD743D000451949 /* Pokedex_EXTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -280,6 +299,9 @@
 				Base,
 			);
 			mainGroup = 812DCF912BD743CF00451949;
+			packageReferences = (
+				819A9F682BD759B80099752F /* XCRemoteSwiftPackageReference "Nimble" */,
+			);
 			productRefGroup = 812DCF9B2BD743CF00451949 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -336,8 +358,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				819A9F672BD756150099752F /* PokemonRepositoryDoubles.swift in Sources */,
 				812DCFD92BD7482700451949 /* HttpDoubles.swift in Sources */,
 				812DCFB02BD743D000451949 /* PokemonRepositoryTests.swift in Sources */,
+				819A9F652BD754580099752F /* PokemonOverViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -677,6 +701,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		819A9F682BD759B80099752F /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:Quick/Nimble.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 13.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		819A9F692BD759B80099752F /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 819A9F682BD759B80099752F /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 812DCF922BD743CF00451949 /* Project object */;
 }
