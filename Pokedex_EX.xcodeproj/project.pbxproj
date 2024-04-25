@@ -25,6 +25,20 @@
 		819A9F6D2BD787980099752F /* PokemonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819A9F6B2BD7878C0099752F /* PokemonDetailView.swift */; };
 		819A9F6F2BD787AC0099752F /* PokemonDetailViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819A9F6E2BD787AC0099752F /* PokemonDetailViewTests.swift */; };
 		819A9F712BD78A200099752F /* PokemonDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819A9F702BD78A200099752F /* PokemonDetail.swift */; };
+		819A9FBE2BD8E9CE0099752F /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819A9FBD2BD8E9CE0099752F /* AuthRepository.swift */; };
+		819A9FC02BD8EA8A0099752F /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819A9FBF2BD8EA8A0099752F /* LoginResponse.swift */; };
+		819A9FC32BD8EBEA0099752F /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819A9FC22BD8EBEA0099752F /* APIError.swift */; };
+		819A9FC52BD8ECC00099752F /* AuthBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819A9FC42BD8ECC00099752F /* AuthBody.swift */; };
+		819A9FC92BD902EC0099752F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819A9FC82BD902EC0099752F /* LoginView.swift */; };
+		819A9FCC2BD908EC0099752F /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819A9FCB2BD908EC0099752F /* AuthProvider.swift */; };
+		819A9FCF2BD9E3340099752F /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819A9FCE2BD9E3340099752F /* APIClient.swift */; };
+		819A9FD12BD9F6D70099752F /* KeyChainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819A9FD02BD9F6D70099752F /* KeyChainProvider.swift */; };
+		819A9FD52BDA13100099752F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819A9FD42BDA13100099752F /* MainView.swift */; };
+		819A9FD72BDA190D0099752F /* MainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819A9FD62BDA190D0099752F /* MainViewModelTests.swift */; };
+		819A9FDA2BDA1CEE0099752F /* AuthProviderDoubles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819A9FD92BDA1CEE0099752F /* AuthProviderDoubles.swift */; };
+		819A9FDC2BDA1DA10099752F /* KeychainProviderDoubles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819A9FDB2BDA1DA10099752F /* KeychainProviderDoubles.swift */; };
+		819A9FDE2BDA2E3F0099752F /* FakeAuthProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819A9FDD2BDA2E3F0099752F /* FakeAuthProviderTests.swift */; };
+		819A9FE02BDA486B0099752F /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819A9FDF2BDA486B0099752F /* Request.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +80,20 @@
 		819A9F6B2BD7878C0099752F /* PokemonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailView.swift; sourceTree = "<group>"; };
 		819A9F6E2BD787AC0099752F /* PokemonDetailViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailViewTests.swift; sourceTree = "<group>"; };
 		819A9F702BD78A200099752F /* PokemonDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetail.swift; sourceTree = "<group>"; };
+		819A9FBD2BD8E9CE0099752F /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
+		819A9FBF2BD8EA8A0099752F /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		819A9FC22BD8EBEA0099752F /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		819A9FC42BD8ECC00099752F /* AuthBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthBody.swift; sourceTree = "<group>"; };
+		819A9FC82BD902EC0099752F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		819A9FCB2BD908EC0099752F /* AuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
+		819A9FCE2BD9E3340099752F /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		819A9FD02BD9F6D70099752F /* KeyChainProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainProvider.swift; sourceTree = "<group>"; };
+		819A9FD42BDA13100099752F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		819A9FD62BDA190D0099752F /* MainViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelTests.swift; sourceTree = "<group>"; };
+		819A9FD92BDA1CEE0099752F /* AuthProviderDoubles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProviderDoubles.swift; sourceTree = "<group>"; };
+		819A9FDB2BDA1DA10099752F /* KeychainProviderDoubles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainProviderDoubles.swift; sourceTree = "<group>"; };
+		819A9FDD2BDA2E3F0099752F /* FakeAuthProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAuthProviderTests.swift; sourceTree = "<group>"; };
+		819A9FDF2BDA486B0099752F /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +145,9 @@
 		812DCF9C2BD743CF00451949 /* Pokedex_EX */ = {
 			isa = PBXGroup;
 			children = (
+				819A9FCD2BD9E3280099752F /* APIClient */,
+				819A9FCA2BD908E30099752F /* Auth */,
+				819A9FC12BD8EBE50099752F /* Error */,
 				812DCFD12BD744F000451949 /* Model */,
 				812DCFCC2BD744D500451949 /* Http */,
 				812DCFCB2BD744CB00451949 /* Repository */,
@@ -141,6 +172,7 @@
 		812DCFAE2BD743D000451949 /* Pokedex_EXTests */ = {
 			isa = PBXGroup;
 			children = (
+				819A9FD82BDA1CE70099752F /* Auth */,
 				819A9F632BD754370099752F /* View */,
 				812DCFD72BD7481C00451949 /* Http */,
 				812DCFD62BD746C000451949 /* Repository */,
@@ -153,6 +185,8 @@
 			children = (
 				812DCFC92BD744C000451949 /* PokemonOverView.swift */,
 				819A9F6B2BD7878C0099752F /* PokemonDetailView.swift */,
+				819A9FC82BD902EC0099752F /* LoginView.swift */,
+				819A9FD42BDA13100099752F /* MainView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -161,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				812DCFCD2BD744E500451949 /* PokemonRepository.swift */,
+				819A9FBD2BD8E9CE0099752F /* AuthRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -179,6 +214,8 @@
 				812DCFD22BD7450B00451949 /* PokeAPIResponse.swift */,
 				812DCFD42BD7451F00451949 /* Pokemon.swift */,
 				819A9F702BD78A200099752F /* PokemonDetail.swift */,
+				819A9FBF2BD8EA8A0099752F /* LoginResponse.swift */,
+				819A9FC42BD8ECC00099752F /* AuthBody.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -213,8 +250,45 @@
 			children = (
 				819A9F642BD754580099752F /* PokemonOverViewTests.swift */,
 				819A9F6E2BD787AC0099752F /* PokemonDetailViewTests.swift */,
+				819A9FD62BDA190D0099752F /* MainViewModelTests.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		819A9FC12BD8EBE50099752F /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				819A9FC22BD8EBEA0099752F /* APIError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		819A9FCA2BD908E30099752F /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				819A9FCB2BD908EC0099752F /* AuthProvider.swift */,
+				819A9FD02BD9F6D70099752F /* KeyChainProvider.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		819A9FCD2BD9E3280099752F /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+				819A9FCE2BD9E3340099752F /* APIClient.swift */,
+				819A9FDF2BDA486B0099752F /* Request.swift */,
+			);
+			path = APIClient;
+			sourceTree = "<group>";
+		};
+		819A9FD82BDA1CE70099752F /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				819A9FD92BDA1CEE0099752F /* AuthProviderDoubles.swift */,
+				819A9FDD2BDA2E3F0099752F /* FakeAuthProviderTests.swift */,
+				819A9FDB2BDA1DA10099752F /* KeychainProviderDoubles.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,11 +430,21 @@
 				812DCFD52BD7451F00451949 /* Pokemon.swift in Sources */,
 				819A9F6D2BD787980099752F /* PokemonDetailView.swift in Sources */,
 				812DCFA02BD743CF00451949 /* ContentView.swift in Sources */,
+				819A9FCF2BD9E3340099752F /* APIClient.swift in Sources */,
+				819A9FC52BD8ECC00099752F /* AuthBody.swift in Sources */,
+				819A9FD52BDA13100099752F /* MainView.swift in Sources */,
+				819A9FBE2BD8E9CE0099752F /* AuthRepository.swift in Sources */,
 				812DCFCA2BD744C000451949 /* PokemonOverView.swift in Sources */,
+				819A9FC32BD8EBEA0099752F /* APIError.swift in Sources */,
+				819A9FD12BD9F6D70099752F /* KeyChainProvider.swift in Sources */,
 				812DCFD32BD7450B00451949 /* PokeAPIResponse.swift in Sources */,
+				819A9FC92BD902EC0099752F /* LoginView.swift in Sources */,
+				819A9FE02BDA486B0099752F /* Request.swift in Sources */,
 				812DCF9E2BD743CF00451949 /* Pokedex_EXApp.swift in Sources */,
 				812DCFCE2BD744E500451949 /* PokemonRepository.swift in Sources */,
 				819A9F712BD78A200099752F /* PokemonDetail.swift in Sources */,
+				819A9FCC2BD908EC0099752F /* AuthProvider.swift in Sources */,
+				819A9FC02BD8EA8A0099752F /* LoginResponse.swift in Sources */,
 				812DCFD02BD744EB00451949 /* Http.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,9 +453,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				819A9FDC2BDA1DA10099752F /* KeychainProviderDoubles.swift in Sources */,
+				819A9FDA2BDA1CEE0099752F /* AuthProviderDoubles.swift in Sources */,
 				819A9F672BD756150099752F /* PokemonRepositoryDoubles.swift in Sources */,
 				812DCFD92BD7482700451949 /* HttpDoubles.swift in Sources */,
+				819A9FDE2BDA2E3F0099752F /* FakeAuthProviderTests.swift in Sources */,
 				812DCFB02BD743D000451949 /* PokemonRepositoryTests.swift in Sources */,
+				819A9FD72BDA190D0099752F /* MainViewModelTests.swift in Sources */,
 				819A9F652BD754580099752F /* PokemonOverViewTests.swift in Sources */,
 				819A9F6F2BD787AC0099752F /* PokemonDetailViewTests.swift in Sources */,
 			);

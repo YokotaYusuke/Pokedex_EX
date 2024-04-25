@@ -9,7 +9,7 @@ class PokemonOverViewTests: XCTestCase {
         let spyPokemonRepository = SpyPokemonRepository()
         
         
-        _ = PokemonOverView.ViewModel(repository: spyPokemonRepository)
+        _ = build(repository: spyPokemonRepository)
         
         
         expect(spyPokemonRepository.getPokemons_wasCalled).toEventually(beTrue())
@@ -23,7 +23,7 @@ class PokemonOverViewTests: XCTestCase {
         ]
         
         
-        let viewModel = PokemonOverView.ViewModel(repository: stubPokemonRepository)
+        let viewModel = build(repository: stubPokemonRepository)
         
         
         let expectation = XCTestExpectation()
@@ -37,5 +37,37 @@ class PokemonOverViewTests: XCTestCase {
             }
             .store(in: &cancellables)
         wait(for: [expectation], timeout: 0.1)
+    }
+    
+    func test_ログアウトボタンをタップした時にトークンを削除してログイン画面に遷移する() {
+        let fakeAuthProvider = FakeAuthProvider()
+        let spyKeychainProvider = SpyKeychainProvider()
+        let viewModel = build(
+            authProvider: fakeAuthProvider,
+            keychainProvider: spyKeychainProvider
+        )
+        fakeAuthProvider.userIsLogedIn = true
+        
+        
+        viewModel.onTapLogoutButton()
+        
+        
+        expect(fakeAuthProvider.userIsLogedIn).to(beFalse())
+        expect(spyKeychainProvider.deleteItem_argument_account)
+            .to(equal(.accessToken))
+    }
+}
+
+extension PokemonOverViewTests {
+    func build(
+        repository: PokemonRepository = DummyPokemonRepository(),
+        authProvider: Authentication = DummyAuthProvider(),
+        keychainProvider: Keychain = DummyKeychainProvider()
+    ) -> PokemonOverView.ViewModel {
+        return .init(
+            repository: repository,
+            authProvider: authProvider,
+            keychainProvider: keychainProvider
+        )
     }
 }
