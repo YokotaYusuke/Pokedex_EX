@@ -73,4 +73,62 @@ class PokemonRepositoryTests: XCTestCase {
         XCTAssertEqual(actualPokemonDetail?.height, 10)
         XCTAssertEqual(actualPokemonDetail?.weight, 20)
     }
+    
+    func test_postFavoritePokemon_httpに正しいリクエストを渡す() async {
+        let spyApiClient = SpyAPIClient()
+        let repository = DefaultPokemonRepository(apiClient: spyApiClient)
+        
+        
+        _ = await repository.postFavoritePokemon(token: "correct token", name: "pikachu")
+        
+        
+        expect(spyApiClient.execute_argument_request?.url.absoluteString)
+            .to(equal("http://localhost:8080/api/pokemon/favorite"))
+        expect(spyApiClient.execute_argument_request?.method).to(equal(Method.post))
+        expect(spyApiClient.execute_argument_request?.params).to(equal([("name", "pikachu")]))
+        expect(spyApiClient.execute_argument_request?.headers).to(equal(["Authorization": "Bearer correct token"]))
+    }
+    
+    func test_postFavoritePokemon_httpの返り値を返す() async {
+        let stubAPIClient = StubAPIClient<String>()
+        stubAPIClient.execute_returnValue = .success("some pokemon id")
+        let repository = DefaultPokemonRepository(apiClient: stubAPIClient)
+        
+        
+        let result = await repository.postFavoritePokemon(token: "", name: "")
+        
+        
+        expect(result).to(beSuccess { pokemonId in
+            expect(pokemonId).to(equal("some pokemon id"))
+        })
+    }
+    
+    func test_getFavoritePokemon_httpに正しいリクエストを渡す() async {
+        let spyApiClient = SpyAPIClient()
+        let repository = DefaultPokemonRepository(apiClient: spyApiClient)
+        
+        
+        _ = await repository.getFavoritePokemon(token: "correct token", name: "pikachu")
+        
+        
+        expect(spyApiClient.execute_argument_request?.url.absoluteString)
+            .to(equal("http://localhost:8080/api/pokemon/favorite"))
+        expect(spyApiClient.execute_argument_request?.method).to(equal(Method.get))
+        expect(spyApiClient.execute_argument_request?.params).to(equal([("name", "pikachu")]))
+        expect(spyApiClient.execute_argument_request?.headers).to(equal(["Authorization": "Bearer correct token"]))
+    }
+    
+    func test_getFavoritePokemon_apiclientの返り値を返す() async {
+        let stubApiClient = StubAPIClient<Favorite>()
+        stubApiClient.execute_returnValue = .success(Favorite(enabled: true))
+        let repository = DefaultPokemonRepository(apiClient: stubApiClient)
+        
+        
+        let result = await repository.getFavoritePokemon(token: "", name: "")
+        
+        
+        expect(result).to(beSuccess { isFavorite in
+            expect(isFavorite).to(beTrue())
+        })
+    }
 }

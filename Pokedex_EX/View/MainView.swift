@@ -32,6 +32,8 @@ extension MainView {
             
             if let token {
                 authProvider.update(userIsLogedIn: true)
+                // トークンがNilのまま進むことがないように保存
+                authProvider.update(accessToken: token)
             } else {
                 authProvider.update(userIsLogedIn: false)
             }

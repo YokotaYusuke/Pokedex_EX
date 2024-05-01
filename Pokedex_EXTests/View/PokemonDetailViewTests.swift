@@ -12,7 +12,8 @@ class PokemonDetailViewTests: XCTestCase  {
         
         _ = PokemonDetailView.ViewModel(
             pokemon: Pokemon(name: "pikachu"),
-            pokemonRepository: spyPokemonRepository
+            pokemonRepository: spyPokemonRepository,
+            authProvider: DummyAuthProvider()
         )
         
         
@@ -30,7 +31,8 @@ class PokemonDetailViewTests: XCTestCase  {
         
         let viewModel = PokemonDetailView.ViewModel(
             pokemon: Pokemon(name: ""),
-            pokemonRepository: stubPokemonRepository
+            pokemonRepository: stubPokemonRepository,
+            authProvider: DummyAuthProvider()
         )
         
         
@@ -46,5 +48,90 @@ class PokemonDetailViewTests: XCTestCase  {
             }
             .store(in: &cancellables)
         wait(for: [expectation], timeout: 0.1)
+    }
+    
+    func test_初期化時_pokemonRepository_getFavoritePokemonにトークンと名前を渡して呼ぶ() {
+        let spyPokemonRepository = SpyPokemonRepository()
+        let fakeAuthProvider = FakeAuthProvider()
+        fakeAuthProvider.update(accessToken: "correct token")
+        
+        
+        _ = PokemonDetailView.ViewModel(
+            pokemon: Pokemon(name: "pikachu"),
+            pokemonRepository: spyPokemonRepository,
+            authProvider: fakeAuthProvider
+        )
+        
+        
+        expect(spyPokemonRepository.getFavoritePokemon_argument_token).toEventually(equal("correct token"))
+        expect(spyPokemonRepository.getFavoritePokemon_argument_name).toEventually(equal("pikachu"))
+    }
+    
+    func test_ポケモンをお気に入りしていたら_Starを塗りつぶす() {
+        let stubPokemonRepository = StubPokemonRepository()
+        stubPokemonRepository.getFavoritePokemon_returnValue = .success(true)
+            
+        
+        let viewModel = PokemonDetailView.ViewModel(
+            pokemon: Pokemon(name: "pikachu"),
+            pokemonRepository: stubPokemonRepository,
+            authProvider: DummyAuthProvider()
+        )
+        
+        
+        expect(viewModel.favoriteStarIsFil).toEventually(beTrue())
+    }
+    
+    func test_ポケモンをお気に入りしていなかったら_Starを塗りつぶさない() {
+        let stubPokemonRepository = StubPokemonRepository()
+        stubPokemonRepository.getFavoritePokemon_returnValue = .success(false)
+            
+        
+        let viewModel = PokemonDetailView.ViewModel(
+            pokemon: Pokemon(name: "pocchama"),
+            pokemonRepository: stubPokemonRepository,
+            authProvider: DummyAuthProvider()
+        )
+        
+        
+        expect(viewModel.favoriteStarIsFil).toEventually(beFalse())
+    }
+    
+    func test_ポケモンをお気に入りしたら_Starを塗りつぶし_repsitoryのpostFavoriteを呼ぶ() {
+        let spyPokemonRepository = SpyPokemonRepository()
+        let fakeAuthProvider = FakeAuthProvider()
+        fakeAuthProvider.accessToken = "access token"
+        let viewModel = PokemonDetailView.ViewModel(
+            pokemon: Pokemon(name: "pikachu"),
+            pokemonRepository: spyPokemonRepository,
+            authProvider: fakeAuthProvider
+        )
+        
+        
+        viewModel.onTapFavoriteButton()
+        
+        
+        expect(viewModel.favoriteStarIsFil).toEventually(beTrue())
+        expect(spyPokemonRepository.postFavoritePokemon_argument_token)
+            .toEventually(equal("access token"))
+        expect(spyPokemonRepository.postFavoritePokemon_argument_name)
+            .toEventually(equal("pikachu"))
+    }
+    
+    func test_ポケモンのお気に入りを解除したら_Starの塗りつぶしを解除し_repositoryのpostFavoriteを呼ぶ() async {
+        let viewModel = PokemonDetailView.ViewModel(
+            pokemon: Pokemon(name: "pikachu"),
+            pokemonRepository: DummyPokemonRepository(),
+            authProvider: DummyAuthProvider()
+        )
+        
+        try! await Task.sleep(nanoseconds: 10000000)
+        viewModel.favoriteStarIsFil = true
+
+        
+        viewModel.onTapFavoriteButton()
+        
+        
+        await expect(viewModel.favoriteStarIsFil).toEventually(beFalse())
     }
 }

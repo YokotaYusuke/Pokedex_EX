@@ -22,12 +22,14 @@ class HTTPAPIClient: APIClient {
             
             switch handleResponse(data, response) {
             case .success(let data):
+                print("success!! \(T.Response.self)")
                 let decoded = try JSONDecoder().decode(T.Response.self, from: data)
                 return .success(decoded)
             case .failure(let error):
                 return handleError(error)
             }
         } catch(let error) {
+            print("error!! \(error.localizedDescription)")
             return handleError(error)
         }
     }

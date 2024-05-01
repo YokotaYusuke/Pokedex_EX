@@ -9,7 +9,9 @@ struct PokemonOverView: View {
             }
             List(viewModel.pokemons, id: \.name) { pokemon in
                 NavigationLink {
-                    PokemonDetailView(viewModel: .init(pokemon: pokemon))
+                    PokemonDetailView(
+                        viewModel: .init(pokemon: pokemon, authProvider: viewModel.authProvider)
+                    )
                 } label: {
                     Text(pokemon.name)
                 }

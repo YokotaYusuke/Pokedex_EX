@@ -39,6 +39,8 @@
 		819A9FDC2BDA1DA10099752F /* KeychainProviderDoubles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819A9FDB2BDA1DA10099752F /* KeychainProviderDoubles.swift */; };
 		819A9FDE2BDA2E3F0099752F /* FakeAuthProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819A9FDD2BDA2E3F0099752F /* FakeAuthProviderTests.swift */; };
 		819A9FE02BDA486B0099752F /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819A9FDF2BDA486B0099752F /* Request.swift */; };
+		819A9FE32BDB634F0099752F /* APIClientDoubles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819A9FE22BDB634F0099752F /* APIClientDoubles.swift */; };
+		819A9FE62BDB9F500099752F /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819A9FE52BDB9F500099752F /* Favorite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +96,8 @@
 		819A9FDB2BDA1DA10099752F /* KeychainProviderDoubles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainProviderDoubles.swift; sourceTree = "<group>"; };
 		819A9FDD2BDA2E3F0099752F /* FakeAuthProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAuthProviderTests.swift; sourceTree = "<group>"; };
 		819A9FDF2BDA486B0099752F /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		819A9FE22BDB634F0099752F /* APIClientDoubles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientDoubles.swift; sourceTree = "<group>"; };
+		819A9FE52BDB9F500099752F /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +176,7 @@
 		812DCFAE2BD743D000451949 /* Pokedex_EXTests */ = {
 			isa = PBXGroup;
 			children = (
+				819A9FE12BDB633C0099752F /* APIClient */,
 				819A9FD82BDA1CE70099752F /* Auth */,
 				819A9F632BD754370099752F /* View */,
 				812DCFD72BD7481C00451949 /* Http */,
@@ -216,6 +221,7 @@
 				819A9F702BD78A200099752F /* PokemonDetail.swift */,
 				819A9FBF2BD8EA8A0099752F /* LoginResponse.swift */,
 				819A9FC42BD8ECC00099752F /* AuthBody.swift */,
+				819A9FE52BDB9F500099752F /* Favorite.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -289,6 +295,14 @@
 				819A9FDB2BDA1DA10099752F /* KeychainProviderDoubles.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		819A9FE12BDB633C0099752F /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+				819A9FE22BDB634F0099752F /* APIClientDoubles.swift */,
+			);
+			path = APIClient;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -432,6 +446,7 @@
 				812DCFA02BD743CF00451949 /* ContentView.swift in Sources */,
 				819A9FCF2BD9E3340099752F /* APIClient.swift in Sources */,
 				819A9FC52BD8ECC00099752F /* AuthBody.swift in Sources */,
+				819A9FE62BDB9F500099752F /* Favorite.swift in Sources */,
 				819A9FD52BDA13100099752F /* MainView.swift in Sources */,
 				819A9FBE2BD8E9CE0099752F /* AuthRepository.swift in Sources */,
 				812DCFCA2BD744C000451949 /* PokemonOverView.swift in Sources */,
@@ -453,6 +468,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				819A9FE32BDB634F0099752F /* APIClientDoubles.swift in Sources */,
 				819A9FDC2BDA1DA10099752F /* KeychainProviderDoubles.swift in Sources */,
 				819A9FDA2BDA1CEE0099752F /* AuthProviderDoubles.swift in Sources */,
 				819A9F672BD756150099752F /* PokemonRepositoryDoubles.swift in Sources */,

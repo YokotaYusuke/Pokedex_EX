@@ -45,7 +45,8 @@ extension LoginView {
             switch result {
             case .success(let loginResponse):
                 keychainProvider.saveItem(account: .accessToken, item: loginResponse.token, accessGroup: nil)
-                Task { await authProvider.update(userIsLogedIn: true) }
+                authProvider.update(userIsLogedIn: true)
+                authProvider.update(accessToken: loginResponse.token)
             case .failure(let error):
                 print()
             }
@@ -56,9 +57,10 @@ extension LoginView {
             switch result {
             case .success(let loginResponse):
                 keychainProvider.saveItem(account: .accessToken, item: loginResponse.token, accessGroup: nil)
-                Task { await authProvider.update(userIsLogedIn: true) }
+                authProvider.update(userIsLogedIn: true)
+                authProvider.update(accessToken: loginResponse.token)
             case .failure(let error):
-                print(error.code, error.reason)
+                print()
             }
         }
     }
